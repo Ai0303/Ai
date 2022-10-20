@@ -167,8 +167,4 @@ const numberA = 3;
     }
                         
             
-
-
-        
-        // 与えられた数値によって、"Yes, it's odd" もしくは "No, it's even" を表示
       
