@@ -139,17 +139,15 @@ const numberA = 3;
 
     //3
      // ヒント： ここで何かする必要があるかもしれません
-     //let count=0;
-     //function counter(count) {
-       // counter=count+1;
-     
-   
-    // ここにあなたのコードを書いてください
+     let count = 0;
+     function counter() {
+        count=count + 1
+        return count;
     
-     //}
-     //counter(count); // => 1
-     //counter(count); // => 2
-     //counter(count); // => 3
+     }
+    console.log (counter()); // => 1
+    console.log (counter()); // => 2
+    console.log (counter()); // => 3
     
     // etc.
 
@@ -157,14 +155,12 @@ const numberA = 3;
     function isOdd(givenNumber) {
         // ここにあなたのコードを書いてください
        
-        if(givenNumber%2==0)
-            {console.log=("No, it's even"); 
+        if(givenNumber%2==0){
+            console.log("No, it's even"); 
         } else{
-            console.log=("Yes, it's odd");
-        }
-
-           
-    }
-                        
-            
-      
+            console.log("Yes, it's odd");
+        }    
+    }                   
+    isOdd(3); // => 1
+    
+   
