@@ -64,6 +64,6 @@ console.log(numberOfPeople1(students)); // => 8
    console.log(push(array1, 10)); // => 6
 
    // 配列が正しく変更されていることを確認する
-   console.log(array);
+   console.log (array1);
    // => [1, 2, 3, 4, 5, 6];
-   let A=1
+   
