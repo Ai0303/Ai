@@ -5,4 +5,5 @@
 	symlinks = false
 	ignorecase = true
 [remote "origin"]
-	url = https://github.com/Ai0303/Ai.git
+	url = https://github.com/WaffleCollege/Ai.git
+	
