@@ -3,10 +3,7 @@
 console.log("hello world!");
 
    // ファイル全体で使用する TDD 用の変数を宣言する
-   let expected;
-   let actual;
-
-    // 上の問題のように、関数testにチェックする内容を全てまとめる
+   // 上の問題のように、関数testにチェックする内容を全てまとめる
    function test(actualExpression, expectedExpression){
        if (actualExpression === expectedExpression) {
            console.log("Yay! Test PASSED.");
@@ -17,11 +14,11 @@ console.log("hello world!");
        }
    }
 
-   actual = /* テストを行う EXPRESSION（式）を定義する */
-   expected = /* EXPRESSION（式）の期待値を定義する */
+//    actual = /* テストを行う EXPRESSION（式）を定義する */
+//    expected = /* EXPRESSION（式）の期待値を定義する */
 
    // testを呼び出す
-   test(actual, expected)
+
 
 //1
    /**
@@ -31,26 +28,25 @@ console.log("hello world!");
     */
    // ここにコードを書きましょう
    function isLongerThan(string, number){
-    return string.length > number;
+    if(string.length > number){
+        return true;
+    }
+    else if(typeof string !== "string" ){
+        return "Invalid input."
+    }
+    else{
+        return false;
+    }
    }
 
-   actual = isLongerThan("three", 3);
-   expected = true;
+    // testを呼び出す
+    test(isLongerThan("three", 3), true)
 
-   // testを呼び出す
-    test(actual, expected)
+     // testを呼び出す
+    test(isLongerThan("three", 5), false);
 
-   actual = isLongerThan("three", 5);
-   expected = false;
-
-   // testを呼び出す
-    test(actual, expected)
-
-   actual = isLongerThan(3, 5);
-   expected = "Invalid input.";
-
-   // testを呼び出す
-    test(actual, expected)
+     // testを呼び出す
+    test(isLongerThan(3, 5), "Invalid input.")
 
 //2
    /**
@@ -59,20 +55,18 @@ console.log("hello world!");
     */
    // ここにコードを書きましょう
    function isOddWithoutIf(number){
-    console.log(typeof((number%2) === 1 ));
-    return (number%2) === 1 ;
+    if ((number%2) === 1){
+        return true;
+    }
+    else{
+        return false;
+    } 
    }
-   actual = isOddWithoutIf(3);
-   expected = true;
-
+    // testを呼び出す
+    test(isOddWithoutIf(3), true);
+   
    // testを呼び出す
-    test(actual, expected)
-
-   actual = isOddWithoutIf(4);
-   expected = false;
-
-   // testを呼び出す
-    test(actual, expected)
+    test(isOddWithoutIf(4), false);
 
 //3
    /**
@@ -80,46 +74,13 @@ console.log("hello world!");
     * 返り値:  {"zero"|"one"|"two"|"three"|"four"|"five"|"six"|"seven"|"eight"|"nine"|"ten"} 与えられた数値をアルファベットで記した時の名前
     */
    // ここにコードを書きましょう
+   const array = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"]
    function getSimpleNumberName(num){
-    if(num===0){
-        return "zero";
-    }
-    if(num===1){
-        return "one";
-    }
-    if(num===2){
-        return "two";
-    }
-    if(num===3){
-        return "three";
-    }
-    if(num===4){
-        return "four";
-    }
-    if(num===5){
-        return "five";
-    }
-    if(num===6){
-        return "six";
-    }
-    if(num===7){
-        return "seven";
-    }
-    if(num===8){
-        return "eight";
-    }
-    if(num===9){
-        return "nine";
-    }
-    if(num===10){
-        return "ten"
-    }
+    return array[num]
        }
-   actual = getSimpleNumberName(0);
-   expected = "zero";
 
 //    // testを呼び出す
-    test(actual, expected)
+    test(getSimpleNumberName(0), "zero")
 
    // さらにテストを書いて、コードが正しいことを確認してください
 
@@ -129,32 +90,13 @@ console.log("hello world!");
     * 返り値:  {"triangle"|"square"|"pentagon"|"hexagon"|"heptagon"|"octagon"} 与えられた数の辺を持つ凸多角形の英語名
     */
    // ここにコードを書きましょう
-   let katachi=["triangle", "square", "pentagon", "hexagon", "heptagon", "octagon"]
+   console.log("A")
+   const katachi=["triangle", "square", "pentagon", "hexagon", "heptagon", "octagon"]
    function getRegularConvexPolygonName(side){
-    if (side===3){
-        return katachi[0];
-    }
-    if (side===4){
-        return katachi[1];
-    }
-    if (side===5){
-        return katachi[2];
-    }
-    if (side===6){
-        return katachi[3];
-    }
-    if (side===7){
-        return katachi[4];
-    }
-    if (side===8){
-        return katachi[5];
-    }
+    return katachi[side - 3];
    }
-   actual = getRegularConvexPolygonName(3);
-   expected = "triangle";
-
    // testを呼び出す
-    test(actual, expected)
+    test(getRegularConvexPolygonName(3), "triangle");
 
    // さらにテストを書いて、コードが正しいことを確認してください
 
@@ -163,3 +105,12 @@ console.log("hello world!");
 // randomNumber: この関数は数値型のデータ number を引数として取り、0 以上 number（引数の数字） 未満の間のランダムな値を返します。
 // guessMyNumber: この関数は数値型のデータ number を引数として取り、引数で与えられた数字と 0 以上 5 以下の間のランダムな整数を比較します。比較した結果一致すれば "YES!" を、一致しなければ "NO!" を返します。
 
+function randomNumber(number){
+    return (Math.floor(Math.random() * number));
+}
+
+test(randomNumber(3), 0, 1, 2, 3);
+
+function guessMyNumber(number){
+    
+}
